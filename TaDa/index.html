@@ -1,0 +1,731 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1.0"
+    >
+
+    <title>Flores Amarillas 💛</title>
+
+    <link
+        rel="stylesheet"
+        href="styles.css"
+    >
+
+</head>
+
+
+<body>
+
+
+    <!-- =====================================================
+         PANTALLA INICIAL
+    ====================================================== -->
+
+    <section
+        id="inicio"
+        class="inicio"
+    >
+
+        <div class="regalo">
+
+            <div class="emoji-regalo">
+                🎁
+            </div>
+
+            <h1>
+                Un regalo para ti 💛
+            </h1>
+
+            <p>
+                Hay algo especial esperándote...
+            </p>
+
+            <button
+                id="abrirRegalo"
+                type="button"
+            >
+                🌻 Abrir regalo
+            </button>
+
+        </div>
+
+    </section>
+
+
+
+    <!-- =====================================================
+         ESCENA PRINCIPAL
+    ====================================================== -->
+
+    <main
+        id="escena"
+        class="escena"
+    >
+
+
+        <!-- CANVAS DEL ÁRBOL -->
+
+        <canvas id="canvas"></canvas>
+
+
+
+        <!-- =================================================
+             MENSAJE
+        ================================================== -->
+
+        <div class="mensaje">
+
+            <span class="mensaje-icono">
+                💛
+            </span>
+
+            <h2 id="titulo-mensaje">
+                Flores amarillas para ti
+            </h2>
+
+            <p id="cuerpo-mensaje">
+                Porque algunas personas hacen que todo florezca
+                un poquito más bonito.
+            </p>
+
+        </div>
+
+
+
+        <!-- =================================================
+             BOTÓN DE MÚSICA
+        ================================================== -->
+
+        <button
+            id="musicaBtn"
+            class="musica"
+            type="button"
+            aria-label="Controlar música"
+        >
+            🎵
+        </button>
+
+
+
+        <!-- =================================================
+             BOTÓN MÍRAME
+        ================================================== -->
+
+        <button
+            id="mirameBtn"
+            class="mirame oculto-btn"
+            type="button"
+        >
+            💛 Mírame
+        </button>
+
+
+
+        <!-- =================================================
+             ACCESO A LA SORPRESA
+        ================================================== -->
+
+        <section
+            id="accesoSorpresa"
+            class="acceso-sorpresa"
+        >
+
+            <div class="acceso-contenido">
+
+
+                <!-- CANDADO -->
+
+                <div class="candado">
+                    🔐
+                </div>
+
+
+
+                <!-- ETIQUETA -->
+
+                <p class="acceso-etiqueta">
+                    UNA PEQUEÑA SORPRESA
+                </p>
+
+
+
+                <!-- TÍTULO -->
+
+                <h2>
+                    Solo para ti 💛
+                </h2>
+
+
+
+                <!-- SUBTÍTULO -->
+
+                <p class="acceso-subtitulo">
+                    Ingresa el código para continuar
+                </p>
+
+
+
+                <!-- =================================================
+                     PUNTOS DEL CÓDIGO
+                ================================================== -->
+
+                <div
+                    class="codigo-puntos"
+                    id="codigoPuntos"
+                    aria-label="Código de acceso"
+                >
+
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                    <span></span>
+
+                </div>
+
+
+
+                <!-- =================================================
+                     INPUT REAL DEL CÓDIGO
+
+                     Es invisible.
+                     JavaScript utiliza este campo para guardar:
+                     1
+                     14
+                     140
+                     1405
+                ================================================== -->
+
+                <input
+                    type="text"
+                    id="codigoInput"
+                    maxlength="4"
+                    inputmode="numeric"
+                    pattern="[0-9]*"
+                    autocomplete="off"
+                    aria-label="Código de acceso"
+                >
+
+
+
+                <!-- =================================================
+                     TECLADO NUMÉRICO
+                ================================================== -->
+
+                <div
+                    id="tecladoNumerico"
+                    class="teclado-numerico"
+                >
+
+
+                    <!-- FILA 1 -->
+
+                    <button
+                        type="button"
+                        class="tecla"
+                        data-numero="1"
+                        aria-label="Número 1"
+                    >
+                        1
+                    </button>
+
+
+                    <button
+                        type="button"
+                        class="tecla"
+                        data-numero="2"
+                        aria-label="Número 2"
+                    >
+                        2
+                    </button>
+
+
+                    <button
+                        type="button"
+                        class="tecla"
+                        data-numero="3"
+                        aria-label="Número 3"
+                    >
+                        3
+                    </button>
+
+
+
+                    <!-- FILA 2 -->
+
+                    <button
+                        type="button"
+                        class="tecla"
+                        data-numero="4"
+                        aria-label="Número 4"
+                    >
+                        4
+                    </button>
+
+
+                    <button
+                        type="button"
+                        class="tecla"
+                        data-numero="5"
+                        aria-label="Número 5"
+                    >
+                        5
+                    </button>
+
+
+                    <button
+                        type="button"
+                        class="tecla"
+                        data-numero="6"
+                        aria-label="Número 6"
+                    >
+                        6
+                    </button>
+
+
+
+                    <!-- FILA 3 -->
+
+                    <button
+                        type="button"
+                        class="tecla"
+                        data-numero="7"
+                        aria-label="Número 7"
+                    >
+                        7
+                    </button>
+
+
+                    <button
+                        type="button"
+                        class="tecla"
+                        data-numero="8"
+                        aria-label="Número 8"
+                    >
+                        8
+                    </button>
+
+
+                    <button
+                        type="button"
+                        class="tecla"
+                        data-numero="9"
+                        aria-label="Número 9"
+                    >
+                        9
+                    </button>
+
+
+
+                    <!-- FILA 4 -->
+
+                    <button
+                        type="button"
+                        class="tecla tecla-borrar"
+                        id="borrarNumero"
+                        aria-label="Borrar"
+                    >
+                        ←
+                    </button>
+
+
+                    <button
+                        type="button"
+                        class="tecla"
+                        data-numero="0"
+                        aria-label="Número 0"
+                    >
+                        0
+                    </button>
+
+
+                    <button
+                        type="button"
+                        class="tecla tecla-confirmar"
+                        id="confirmarCodigo"
+                        aria-label="Confirmar código"
+                    >
+                        ✓
+                    </button>
+
+                </div>
+
+
+
+                <!-- =================================================
+                     MENSAJE DEL CÓDIGO
+                ================================================== -->
+
+                <p
+                    id="mensajeCodigo"
+                    class="mensaje-codigo"
+                    aria-live="polite"
+                ></p>
+
+
+                <!-- =================================================
+                     BOTÓN ENTRAR
+
+                     Lo dejamos oculto visualmente porque
+                     el botón ✓ será el encargado de confirmar.
+                ================================================== -->
+
+                <button
+                    id="entrarBtn"
+                    type="button"
+                    hidden
+                >
+                    Entrar
+                </button>
+
+            </div>
+
+        </section>
+
+
+
+        <!-- =====================================================
+             COLLAGE / RECUERDOS
+        ====================================================== -->
+
+        <section
+            id="recuerdos"
+            class="recuerdos"
+        >
+
+
+            <!-- FONDO -->
+
+            <!-- FONDO DE VIDEO -->
+
+            <video 
+                class="recuerdos-video"
+                autoplay
+                muted
+                loop
+                playsinline
+            >
+                <source src="img/vd1.mp4" type="video/mp4">
+            </video>
+
+            <!-- CAPA SOBRE EL VIDEO -->
+
+            <div class="recuerdos-overlay"></div>
+
+
+
+            <!-- TÍTULO -->
+
+            <div class="recuerdos-titulo">
+
+                <span>
+                    💛
+                </span>
+
+                <p>
+                    Algunos momentos especiales
+                </p>
+
+            </div>
+
+
+
+            <!-- =================================================
+                 COLLAGE
+            ================================================== -->
+
+            <div
+                class="collage"
+                id="collage"
+            >
+
+
+                <!-- FOTO 1 -->
+
+                <div
+                    class="foto foto-1"
+                    data-index="0"
+                >
+
+                    <div class="foto-placeholder" >
+                        <img src="img/img1.jpeg" alt="FOTO 01">
+                    </div>
+
+                </div>
+
+
+
+                <!-- FOTO 2 -->
+
+                <div
+                    class="foto foto-2"
+                    data-index="1"
+                >
+
+                    <div class="foto-placeholder">
+                        <img src="img/img2.jpeg" alt="FOTO 02">
+                    </div>
+
+                </div>
+
+
+
+                <!-- FOTO 3 -->
+
+                <div
+                    class="foto foto-3"
+                    data-index="2"
+                >
+
+                    <div class="foto-placeholder">
+                        <img src="img/img3.jpeg" alt="FOTO 03">
+                    </div>
+
+                </div>
+
+
+
+                <!-- FOTO 4 -->
+
+                <div
+                    class="foto foto-4"
+                    data-index="3"
+                >
+
+                    <div class="foto-placeholder">
+                        <img src="img/img4.jpeg" alt="FOTO 04">
+                    </div>
+
+                </div>
+
+
+
+                <!-- FOTO 5 -->
+
+                <div
+                    class="foto foto-5"
+                    data-index="4"
+                >
+
+                    <div class="foto-placeholder">
+                        <img src="img/img5.jpeg" alt="FOTO 05">
+                    </div>
+
+                </div>
+
+                <!-- FOTO 6 -->
+                <div
+                    class="foto foto-6"
+                    data-index="5"
+                >
+
+                    <div class="foto-placeholder">
+                        <img src="img/img6.jpeg" alt="FOTO 06">
+                    </div>
+
+                </div>
+
+                <!-- FOTO 7 -->
+                <div
+                    class="foto foto-7"
+                    data-index="6"
+                >   
+
+                    <div class="foto-placeholder">
+                        <img src="img/img7.jpeg" alt="FOTO 07">
+                    </div>  
+                </div>
+                
+                <!-- FOTO 8 -->
+                <div 
+                    class="foto foto-8" 
+                    data-index="7"
+                >
+                    <div class="foto-placeholder">
+                        <img src="img/img8.jpeg" alt="FOTO 08">
+                    </div>
+                </div>
+
+                <!-- FOTO 9 -->
+                <div 
+                    class="foto foto-9" 
+                    data-index="8"
+                >
+                    <div class="foto-placeholder">
+                        <img src="img/img9.jpeg" alt="FOTO 09">
+                    </div>
+                </div>
+
+                <!-- FOTO 10 -->
+                <div 
+                    class="foto foto-10" 
+                    data-index="9"
+                >
+                    <div class="foto-placeholder">
+                        <img src="img/img10.jpeg" alt="FOTO 10">
+                    </div>
+                </div>
+
+                <!-- FOTO 11 -->
+                <div 
+                    class="foto foto-11" 
+                    data-index="10"
+                >
+                    <div class="foto-placeholder">
+                        <img src="img/img11.jpeg" alt="FOTO 11">
+                    </div>
+                </div>
+
+                <!-- FOTO 12 -->
+                <div 
+                    class="foto foto-12" 
+                    data-index="11"
+                >
+                    <div class="foto-placeholder">
+                        <img src="img/img12.jpeg" alt="FOTO 12">
+                    </div>
+                </div>
+
+                <!-- FOTO 13 -->
+                <div 
+                    class="foto foto-13" 
+                    data-index="12"
+                >
+                    <div class="foto-placeholder">
+                        <img src="img/img13.jpeg" alt="FOTO 13">
+                    </div>
+                </div>
+
+                <!-- FOTO 14 -->
+                <div 
+                    class="foto foto-14" 
+                    data-index="13"
+                >
+                    <div class="foto-placeholder">
+                        <img src="img/img14.jpeg" alt="FOTO 14">
+                    </div>
+                </div>
+
+            </div>
+
+
+
+            <!-- =================================================
+                 CONTROLES
+            ================================================== -->
+
+            <button
+                id="anteriorFoto"
+                class="control-foto anterior"
+                type="button"
+                aria-label="Foto anterior"
+            >
+                ‹
+            </button>
+
+
+            <button
+                id="siguienteFoto"
+                class="control-foto siguiente"
+                type="button"
+                aria-label="Foto siguiente"
+            >
+                ›
+            </button>
+
+
+
+            <!-- =================================================
+                 INDICADORES
+            ================================================== -->
+
+            <div
+                class="indicadores-fotos"
+                id="indicadoresFotos"
+            >
+
+                <button
+                    type="button"
+                    class="indicador activo"
+                    data-index="0"
+                    aria-label="Foto 1"
+                ></button>
+
+                <button
+                    type="button"
+                    class="indicador"
+                    data-index="1"
+                    aria-label="Foto 2"
+                ></button>
+
+                <button
+                    type="button"
+                    class="indicador"
+                    data-index="2"
+                    aria-label="Foto 3"
+                ></button>
+
+                <button
+                    type="button"
+                    class="indicador"
+                    data-index="3"
+                    aria-label="Foto 4"
+                ></button>
+
+                <button
+                    type="button"
+                    class="indicador"
+                    data-index="4"
+                    aria-label="Foto 5"
+                ></button>
+
+            </div>
+
+
+
+            <!-- PIE -->
+
+            <p class="recuerdos-pie">
+                Hecho con cariño por Davicito 💛 
+            </p>
+
+        </section>
+
+    </main>
+
+
+
+    <!-- =====================================================
+         MÚSICA
+    ====================================================== -->
+
+    <audio
+        id="musica"
+        loop
+        preload="auto"
+    >
+
+        <source
+            src="Taylor Swift - Fearless (Taylor's Version) (Lyric Video).mp3"
+            type="audio/mpeg"
+        >
+
+        Tu navegador no soporta audio HTML5.
+
+    </audio>
+
+    <!-- =====================================================
+         JAVASCRIPT
+    ====================================================== -->
+
+    <script src="script.js"></script>
+
+
+</body>
+
+</html>

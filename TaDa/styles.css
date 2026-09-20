@@ -1,0 +1,2438 @@
+/* =====================================================
+   RESET
+===================================================== */
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+
+html,
+body {
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+}
+
+
+body {
+    font-family:
+        Georgia,
+        "Times New Roman",
+        serif;
+
+    background: #fff8d7;
+}
+
+
+/* =====================================================
+   INICIO
+===================================================== */
+
+.inicio {
+
+    position: fixed;
+
+    inset: 0;
+
+    z-index: 1000;
+
+    display: flex;
+
+    justify-content: center;
+
+    align-items: center;
+
+    background:
+        radial-gradient(
+            circle at center,
+            #fffef2 0%,
+            #fff3ad 50%,
+            #efd35b 100%
+        );
+
+    transition:
+        opacity 1s ease,
+        visibility 1s ease;
+}
+
+
+.inicio.oculto {
+
+    opacity: 0;
+
+    visibility: hidden;
+
+    pointer-events: none;
+}
+
+
+.regalo {
+
+    width:
+        min(90%, 600px);
+
+    text-align: center;
+
+    padding: 30px;
+}
+
+
+.emoji-regalo {
+
+    font-size:
+        clamp(65px, 12vw, 100px);
+
+    margin-bottom: 20px;
+
+    animation:
+        flotar 2s ease-in-out infinite;
+}
+
+
+.regalo h1 {
+
+    color: #5b3b00;
+
+    font-size:
+        clamp(30px, 6vw, 55px);
+
+    margin-bottom: 15px;
+}
+
+
+.regalo p {
+
+    color: #6d5220;
+
+    font-size:
+        clamp(16px, 3vw, 21px);
+
+    margin-bottom: 30px;
+}
+
+
+/* =====================================================
+   BOTÓN ABRIR REGALO
+===================================================== */
+
+#abrirRegalo {
+
+    border: none;
+
+    border-radius: 50px;
+
+    padding: 17px 32px;
+
+    background: #f4c400;
+
+    color: #3e2723;
+
+    font-size: 19px;
+
+    font-weight: bold;
+
+    cursor: pointer;
+
+    box-shadow:
+        0 8px 25px
+        rgba(70, 50, 0, .22);
+
+    transition:
+        transform .25s ease,
+        box-shadow .25s ease;
+}
+
+
+#abrirRegalo:hover {
+
+    transform:
+        scale(1.07);
+
+    box-shadow:
+        0 12px 30px
+        rgba(70, 50, 0, .30);
+}
+
+
+#abrirRegalo:active {
+
+    transform:
+        scale(.96);
+}
+
+
+/* =====================================================
+   ESCENA
+===================================================== */
+
+.escena {
+
+    position: fixed;
+
+    inset: 0;
+
+    overflow: hidden;
+
+    opacity: 0;
+
+    visibility: hidden;
+
+    background:
+        radial-gradient(
+            ellipse at 70% 42%,
+            #fffef0 0%,
+            #fff9d7 45%,
+            #f1dd86 100%
+        );
+
+    transition:
+        opacity 1.3s ease,
+        visibility 1.3s ease;
+}
+
+
+.escena.activa {
+
+    opacity: 1;
+
+    visibility: visible;
+}
+
+
+/* =====================================================
+   CANVAS
+===================================================== */
+
+#canvas {
+
+    position: absolute;
+
+    inset: 0;
+
+    width: 100%;
+
+    height: 100%;
+
+    display: block;
+
+    z-index: 1;
+}
+
+
+/* =====================================================
+   MENSAJE
+===================================================== */
+
+.mensaje {
+
+    position: absolute;
+
+    z-index: 50;
+
+    top: 50%;
+
+    left: 5%;
+
+    transform:
+        translateY(-50%);
+
+    width:
+        min(390px, 32vw);
+
+    padding:
+        22px 25px;
+
+    color: #3e2723;
+
+    background:
+        rgba(
+            255,
+            250,
+            220,
+            .90
+        );
+
+    border:
+        1px solid
+        rgba(
+            90,
+            60,
+            20,
+            .16
+        );
+
+    border-radius: 20px;
+
+    box-shadow:
+        0 10px 30px
+        rgba(
+            70,
+            45,
+            0,
+            .12
+        );
+
+    backdrop-filter:
+        blur(6px);
+
+    pointer-events: none;
+}
+
+
+.mensaje-icono {
+
+    font-size: 28px;
+
+    margin-bottom: 5px;
+}
+
+
+.mensaje h2 {
+
+    color: #3e2723;
+
+    font-size:
+        clamp(
+            25px,
+            3vw,
+            40px
+        );
+
+    line-height: 1.1;
+
+    margin-bottom: 10px;
+}
+
+
+.mensaje p {
+
+    color: #3e2723;
+
+    font-size:
+        clamp(
+            14px,
+            1.7vw,
+            18px
+        );
+
+    line-height: 1.5;
+}
+
+
+#titulo-mensaje,
+#cuerpo-mensaje {
+
+    transition:
+        opacity .5s ease-in-out;
+
+    opacity: 1;
+}
+
+
+/* =====================================================
+   BOTÓN MÚSICA
+===================================================== */
+
+.musica {
+
+    position: absolute;
+
+    z-index: 100;
+
+    top: 20px;
+
+    right: 20px;
+
+    width: 48px;
+
+    height: 48px;
+
+    border: none;
+
+    border-radius: 50%;
+
+    background:
+        rgba(
+            255,
+            255,
+            255,
+            .84
+        );
+
+    color: #3e2723;
+
+    font-size: 21px;
+
+    cursor: pointer;
+
+    box-shadow:
+        0 4px 15px
+        rgba(
+            0,
+            0,
+            0,
+            .15
+        );
+}
+
+
+/* =====================================================
+   BOTÓN MÍRAME
+===================================================== */
+
+.mirame {
+
+    position: absolute;
+
+    z-index: 120;
+
+    left: 50%;
+
+    bottom: 70px;
+
+    transform:
+        translateX(-50%);
+
+    border: none;
+
+    border-radius: 50px;
+
+    padding:
+        15px 32px;
+
+    background:
+        linear-gradient(
+            135deg,
+            #ffd92f,
+            #f4c400
+        );
+
+    color: #3e2723;
+
+    font-family:
+        Georgia,
+        "Times New Roman",
+        serif;
+
+    font-size: 18px;
+
+    font-weight: bold;
+
+    cursor: pointer;
+
+    box-shadow:
+        0 10px 30px
+        rgba(
+            100,
+            70,
+            0,
+            .25
+        );
+
+    transition:
+        opacity .5s ease,
+        transform .3s ease,
+        box-shadow .3s ease;
+}
+
+
+.mirame.oculto-btn {
+
+    opacity: 0;
+
+    visibility: hidden;
+
+    pointer-events: none;
+}
+
+
+.mirame.visible {
+
+    opacity: 1;
+
+    visibility: visible;
+
+    pointer-events: auto;
+
+    animation:
+        aparecerMirame
+        .8s ease forwards;
+}
+
+
+.mirame:hover {
+
+    transform:
+        translateX(-50%)
+        scale(1.08);
+
+    box-shadow:
+        0 15px 35px
+        rgba(
+            100,
+            70,
+            0,
+            .32
+        );
+}
+
+
+.mirame:active {
+
+    transform:
+        translateX(-50%)
+        scale(.94);
+}
+
+
+@keyframes aparecerMirame {
+
+    from {
+
+        opacity: 0;
+
+        transform:
+            translateX(-50%)
+            translateY(25px)
+            scale(.85);
+    }
+
+    to {
+
+        opacity: 1;
+
+        transform:
+            translateX(-50%)
+            translateY(0)
+            scale(1);
+    }
+}
+
+
+/* =====================================================
+   TRANSICIÓN ZOOM + GIRO
+===================================================== */
+
+body.transicion-mirame #canvas {
+
+    animation:
+        zoomCorazon
+        1.25s
+        cubic-bezier(
+            .2,
+            .8,
+            .2,
+            1
+        )
+        forwards;
+
+    transform-origin:
+        center center;
+}
+
+
+body.transicion-mirame .mensaje {
+
+    animation:
+        desvanecerMensaje
+        .7s
+        ease
+        forwards;
+}
+
+
+.mirame.presionado {
+
+    animation:
+        botonViaje
+        .9s
+        cubic-bezier(
+            .2,
+            .8,
+            .2,
+            1
+        )
+        forwards;
+}
+
+
+@keyframes zoomCorazon {
+
+    0% {
+
+        transform:
+            scale(1)
+            rotate(0deg);
+
+        opacity: 1;
+    }
+
+    60% {
+
+        transform:
+            scale(1.35)
+            rotate(4deg);
+
+        opacity: 1;
+    }
+
+    100% {
+
+        transform:
+            scale(5.5)
+            rotate(14deg);
+
+        opacity: 0;
+    }
+}
+
+
+@keyframes desvanecerMensaje {
+
+    to {
+
+        opacity: 0;
+
+        transform:
+            translateY(-50%)
+            scale(.88);
+    }
+}
+
+
+@keyframes botonViaje {
+
+    0% {
+
+        transform:
+            translateX(-50%)
+            scale(1);
+    }
+
+    45% {
+
+        transform:
+            translateX(-50%)
+            scale(1.18)
+            rotate(-4deg);
+    }
+
+    100% {
+
+        transform:
+            translateX(-50%)
+            scale(.05)
+            rotate(360deg);
+
+        opacity: 0;
+    }
+}
+
+
+/* =====================================================
+   PANTALLA DE ACCESO
+===================================================== */
+
+.acceso-sorpresa {
+
+    position: absolute;
+
+    inset: 0;
+
+    z-index: 300;
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: center;
+
+    background:
+        radial-gradient(
+            circle at 50% 45%,
+            rgba(
+                255,
+                255,
+                245,
+                .97
+            ) 0%,
+            rgba(
+                255,
+                247,
+                190,
+                .95
+            ) 45%,
+            rgba(
+                220,
+                188,
+                55,
+                .92
+            ) 100%
+        );
+
+    opacity: 0;
+
+    visibility: hidden;
+
+    transform:
+        scale(.72)
+        rotate(-3deg);
+
+    transition:
+        opacity .8s ease,
+        visibility .8s ease,
+        transform 1s
+        cubic-bezier(
+            .2,
+            .8,
+            .2,
+            1
+        );
+}
+
+
+.acceso-sorpresa.mostrar {
+
+    opacity: 1;
+
+    visibility: visible;
+
+    transform:
+        scale(1)
+        rotate(0);
+}
+
+
+.acceso-sorpresa.salir {
+
+    opacity: 0;
+
+    transform:
+        scale(1.8)
+        rotate(7deg);
+
+    pointer-events: none;
+}
+
+
+/* =====================================================
+   TARJETA DE ACCESO
+===================================================== */
+
+.acceso-contenido {
+
+    width:
+        min(
+            90%,
+            430px
+        );
+
+    padding:
+        42px 35px;
+
+    text-align: center;
+
+    background:
+        rgba(
+            255,
+            255,
+            255,
+            .76
+        );
+
+    border:
+        1px solid
+        rgba(
+            255,
+            255,
+            255,
+            .85
+        );
+
+    border-radius: 32px;
+
+    box-shadow:
+        0 30px 80px
+        rgba(
+            85,
+            55,
+            0,
+            .22
+        );
+
+    backdrop-filter:
+        blur(16px);
+}
+
+
+.candado {
+
+    font-size: 48px;
+
+    margin-bottom: 12px;
+}
+
+
+.acceso-etiqueta {
+
+    font-family:
+        system-ui,
+        sans-serif;
+
+    font-size: 11px;
+
+    letter-spacing: 4px;
+
+    font-weight: 700;
+
+    color: #8a6a00;
+}
+
+
+.acceso-contenido h2 {
+
+    margin:
+        8px 0;
+
+    color: #4a3300;
+
+    font-size:
+        clamp(
+            28px,
+            6vw,
+            40px
+        );
+}
+
+
+.acceso-subtitulo {
+
+    color: #755d25;
+
+    margin-bottom: 20px;
+}
+
+
+/* =====================================================
+   PUNTOS DEL CÓDIGO
+===================================================== */
+
+.codigo-puntos {
+
+    display: flex;
+
+    justify-content: center;
+
+    align-items: center;
+
+    gap: 14px;
+
+    margin:
+        10px 0 22px;
+}
+
+
+.codigo-puntos span {
+
+    width: 15px;
+
+    height: 15px;
+
+    border-radius: 50%;
+
+    background:
+        #ded4ad;
+
+    transition:
+        .25s ease;
+}
+
+
+.codigo-puntos span.lleno {
+
+    background:
+        #e8b900;
+
+    transform:
+        scale(1.25);
+
+    box-shadow:
+        0 0 15px
+        rgba(
+            244,
+            196,
+            0,
+            .55
+        );
+}
+
+
+/* =====================================================
+   INPUT OCULTO
+   Se mantiene para compatibilidad con JS
+===================================================== */
+
+.codigo-input {
+
+    position: absolute;
+
+    width: 1px;
+
+    height: 1px;
+
+    opacity: 0;
+
+    pointer-events: none;
+}
+
+
+/* =====================================================
+   TECLADO NUMÉRICO
+===================================================== */
+
+.teclado-numerico {
+
+    width: 270px;
+
+    max-width: 100%;
+
+    margin:
+        18px auto 5px;
+
+    display: grid;
+
+    grid-template-columns:
+        repeat(3, 1fr);
+
+    gap: 10px;
+}
+
+
+.tecla {
+
+    width: 100%;
+
+    height: 58px;
+
+    border: none;
+
+    border-radius: 16px;
+
+    background:
+        rgba(
+            255,
+            255,
+            255,
+            .88
+        );
+
+    color: #573f00;
+
+    font-family:
+        system-ui,
+        sans-serif;
+
+    font-size: 22px;
+
+    font-weight: 700;
+
+    cursor: pointer;
+
+    box-shadow:
+        0 5px 15px
+        rgba(
+            100,
+            70,
+            0,
+            .12
+        );
+
+    transition:
+        transform .15s ease,
+        background .15s ease,
+        box-shadow .15s ease;
+}
+
+
+.tecla:hover {
+
+    transform:
+        translateY(-3px);
+
+    background:
+        #ffffff;
+
+    box-shadow:
+        0 9px 22px
+        rgba(
+            100,
+            70,
+            0,
+            .18
+        );
+}
+
+
+.tecla:active,
+.tecla.presionada {
+
+    transform:
+        scale(.92);
+
+    background:
+        #f4c400;
+
+    box-shadow:
+        0 3px 10px
+        rgba(
+            100,
+            70,
+            0,
+            .18
+        );
+}
+
+
+.tecla-borrar {
+
+    color:
+        #9b573f;
+}
+
+
+.tecla-confirmar {
+
+    background:
+        #f4c400;
+
+    color:
+        #3e2723;
+}
+
+
+.tecla-confirmar:hover {
+
+    background:
+        #ffd52e;
+}
+
+
+/* =====================================================
+   BOTÓN ENTRAR
+   Compatibilidad si todavía existe en HTML
+===================================================== */
+
+.entrar-btn {
+
+    border: none;
+
+    border-radius: 50px;
+
+    padding:
+        14px 35px;
+
+    background:
+        #f4c400;
+
+    color:
+        #3e2723;
+
+    font-size: 17px;
+
+    font-weight: 700;
+
+    cursor: pointer;
+
+    box-shadow:
+        0 10px 25px
+        rgba(
+            100,
+            70,
+            0,
+            .18
+        );
+
+    transition:
+        .25s ease;
+}
+
+
+.entrar-btn:hover {
+
+    transform:
+        translateY(-2px)
+        scale(1.04);
+}
+
+
+/* =====================================================
+   MENSAJE DEL CÓDIGO
+===================================================== */
+
+.mensaje-codigo {
+
+    min-height: 22px;
+
+    margin-top: 15px;
+
+    font-family:
+        system-ui,
+        sans-serif;
+
+    font-size: 13px;
+
+    transition:
+        opacity .3s ease;
+}
+
+
+.mensaje-codigo.correcto {
+
+    color:
+        #47722d;
+}
+
+
+.mensaje-codigo.error {
+
+    color:
+        #9a4b32;
+}
+
+
+/* =====================================================
+   ERROR - SACUDIDA
+===================================================== */
+
+.sacudir {
+
+    animation:
+        sacudir
+        .4s ease;
+}
+
+
+@keyframes sacudir {
+
+    20% {
+        transform:
+            translateX(-8px);
+    }
+
+    40% {
+        transform:
+            translateX(8px);
+    }
+
+    60% {
+        transform:
+            translateX(-5px);
+    }
+
+    80% {
+        transform:
+            translateX(5px);
+    }
+}
+
+
+/* =====================================================
+   COLLAGE / CARRUSEL
+===================================================== */
+
+.recuerdos {
+
+    position: absolute;
+
+    inset: 0;
+
+    z-index: 400;
+
+    overflow: hidden;
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: center;
+
+    opacity: 0;
+
+    visibility: hidden;
+
+    transform:
+        scale(.75)
+        rotate(-4deg);
+
+    background:
+        radial-gradient(
+            circle at 50% 45%,
+            #fffef2 0%,
+            #fff4b7 45%,
+            #e7c85c 100%
+        );
+
+    transition:
+        opacity 1s ease,
+        visibility 1s ease,
+        transform 1.2s
+        cubic-bezier(
+            .16,
+            1,
+            .3,
+            1
+        );
+}
+
+
+.recuerdos.mostrar {
+
+    opacity: 1;
+
+    visibility: visible;
+
+    transform:
+        scale(1)
+        rotate(0);
+}
+
+
+/* =====================================================
+   FONDO DEL COLLAGE
+===================================================== */
+
+.recuerdos-fondo {
+
+    position: absolute;
+
+    inset: -20%;
+
+    background:
+        radial-gradient(
+            circle,
+            rgba(
+                255,
+                255,
+                255,
+                .7
+            )
+            0 2px,
+            transparent 3px
+        );
+
+    background-size:
+        55px 55px;
+
+    opacity: .3;
+
+    animation:
+        moverFondo
+        18s linear infinite;
+}
+
+
+@keyframes moverFondo {
+
+    to {
+
+        transform:
+            translate(
+                55px,
+                55px
+            );
+    }
+}
+
+
+/* =====================================================
+   TÍTULO DEL COLLAGE
+===================================================== */
+
+.recuerdos-titulo {
+
+    position: absolute;
+
+    top: 8%;
+
+    left: 50%;
+
+    transform:
+        translateX(-50%);
+
+    z-index: 20;
+
+    text-align: center;
+}
+
+
+.recuerdos-titulo span {
+
+    font-size: 34px;
+}
+
+
+.recuerdos-titulo p {
+
+    margin-top: 5px;
+
+    color: #fbfbf9;
+
+    font-size:
+        clamp(
+            18px,
+            3vw,
+            27px
+        );
+
+    font-weight: 600;
+}
+
+
+/* =====================================================
+   CONTENEDOR DEL COLLAGE
+===================================================== */
+
+.collage {
+
+    position: relative;
+
+    width:
+        min(88vw, 720px);
+
+    height:
+        min(72vh, 580px);
+
+    perspective:
+        1200px;
+}
+
+
+/* =====================================================
+   FOTOGRAFÍAS
+===================================================== */
+
+.foto {
+
+    position: absolute;
+
+    top: 50%;
+
+    left: 50%;
+
+    width:
+        min(
+            310px,
+            45vw
+        );
+
+    aspect-ratio:
+        4 / 5;
+
+    padding: 12px;
+
+    background:
+        #fffdf6;
+
+    border-radius: 4px;
+
+    box-shadow:
+        0 25px 50px
+        rgba(
+            70,
+            50,
+            0,
+            .28
+        );
+
+    transform-origin:
+        center;
+
+    opacity: 0;
+
+    pointer-events: none;
+
+    transition:
+        transform .9s
+        cubic-bezier(
+            .2,
+            .8,
+            .2,
+            1
+        ),
+        opacity .7s ease,
+        filter .7s ease;
+}
+
+
+.foto-placeholder {
+
+    width: 100%;
+
+    height: 100%;
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: center;
+
+    background:
+        linear-gradient(
+            135deg,
+            #fff7bd,
+            #e9c84d
+        );
+
+    color:
+        #705600;
+
+    font-family:
+        system-ui,
+        sans-serif;
+
+    font-weight: 700;
+
+    letter-spacing: 2px;
+}
+
+
+/* =====================================================
+   FOTO PRINCIPAL
+===================================================== */
+
+.foto.activa {
+
+    opacity: 1;
+
+    z-index: 10;
+
+    transform:
+        translate(
+            -50%,
+            -50%
+        )
+        rotate(0deg)
+        scale(1);
+
+    filter:
+        none;
+}
+
+
+/* =====================================================
+   FOTO IZQUIERDA
+===================================================== */
+
+.foto.izquierda {
+
+    opacity: .7;
+
+    z-index: 5;
+
+    transform:
+        translate(
+            calc(-50% - 250px),
+            -50%
+        )
+        rotate(-13deg)
+        scale(.78);
+
+    filter:
+        brightness(.92);
+}
+
+
+/* =====================================================
+   FOTO DERECHA
+===================================================== */
+
+.foto.derecha {
+
+    opacity: .7;
+
+    z-index: 5;
+
+    transform:
+        translate(
+            calc(-50% + 250px),
+            -50%
+        )
+        rotate(13deg)
+        scale(.78);
+
+    filter:
+        brightness(.92);
+}
+
+
+/* =====================================================
+   CONTROLES DEL CARRUSEL
+===================================================== */
+
+.control-foto {
+
+    position: absolute;
+
+    top: 50%;
+
+    z-index: 30;
+
+    width: 52px;
+
+    height: 52px;
+
+    border: 0;
+
+    border-radius: 50%;
+
+    background:
+        rgba(
+            255,
+            255,
+            255,
+            .85
+        );
+
+    color:
+        #5a4200;
+
+    font-size: 35px;
+
+    line-height: 1;
+
+    cursor: pointer;
+
+    box-shadow:
+        0 10px 25px
+        rgba(
+            70,
+            50,
+            0,
+            .18
+        );
+
+    transition:
+        .25s ease;
+}
+
+
+.control-foto:hover {
+
+    transform:
+        scale(1.1);
+
+    background:
+        #fff;
+}
+
+
+.control-foto.anterior {
+
+    left: 6%;
+}
+
+
+.control-foto.siguiente {
+
+    right: 6%;
+}
+
+
+/* =====================================================
+   INDICADORES
+===================================================== */
+
+.indicadores-fotos {
+
+    position: absolute;
+
+    bottom: 9%;
+
+    left: 50%;
+
+    transform:
+        translateX(-50%);
+
+    z-index: 30;
+
+    display: flex;
+
+    gap: 8px;
+}
+
+
+.indicador {
+
+    width: 9px;
+
+    height: 9px;
+
+    padding: 0;
+
+    border: 0;
+
+    border-radius: 50%;
+
+    background:
+        rgba(
+            90,
+            65,
+            0,
+            .25
+        );
+
+    cursor: pointer;
+
+    transition:
+        .25s ease;
+}
+
+
+.indicador.activo {
+
+    width: 25px;
+
+    border-radius: 10px;
+
+    background:
+        #d5a900;
+}
+
+
+/* =====================================================
+   PIE DEL COLLAGE
+===================================================== */
+
+.recuerdos-pie {
+
+    position: absolute;
+
+    bottom: 3%;
+
+    color:
+        rgba(
+            80,
+            60,
+            10,
+            .65
+        );
+
+    font-family:
+        system-ui,
+        sans-serif;
+
+    font-size: 12px;
+}
+
+
+/* =====================================================
+   ANIMACIÓN FLOTAR
+===================================================== */
+
+@keyframes flotar {
+
+    0%,
+    100% {
+
+        transform:
+            translateY(0);
+    }
+
+    50% {
+
+        transform:
+            translateY(-12px);
+    }
+}
+
+
+/* =====================================================
+   TABLET
+===================================================== */
+
+@media (max-width: 900px) {
+
+    .mensaje {
+
+        top: 20px;
+
+        left: 50%;
+
+        transform:
+            translateX(-50%);
+
+        width:
+            min(
+                90%,
+                550px
+            );
+
+        text-align: center;
+    }
+
+
+    .mirame {
+
+        bottom: 55px;
+    }
+}
+
+
+/* =====================================================
+   MÓVIL
+===================================================== */
+
+@media (max-width: 600px) {
+
+    .mensaje {
+
+        top: 12px;
+
+        width: 88%;
+
+        padding:
+            12px 16px;
+
+        border-radius: 16px;
+    }
+
+
+    .mensaje-icono {
+
+        display: none;
+    }
+
+
+    .mensaje h2 {
+
+        font-size: 23px;
+
+        margin-bottom: 5px;
+    }
+
+
+    .mensaje p {
+
+        font-size: 13px;
+    }
+
+
+    .musica {
+
+        top: auto;
+
+        right: 15px;
+
+        bottom: 15px;
+    }
+
+
+    .mirame {
+
+        bottom: 65px;
+
+        font-size: 16px;
+
+        padding:
+            12px 26px;
+    }
+
+
+    /* ---------------------------------------------
+       ACCESO
+    --------------------------------------------- */
+
+    .acceso-contenido {
+
+        width: 90%;
+
+        padding:
+            32px 20px;
+
+        border-radius: 26px;
+    }
+
+
+    .candado {
+
+        font-size: 42px;
+    }
+
+
+    .acceso-contenido h2 {
+
+        font-size: 30px;
+    }
+
+
+    .acceso-etiqueta {
+
+        letter-spacing: 3px;
+
+        font-size: 10px;
+    }
+
+
+    /* ---------------------------------------------
+       TECLADO
+    --------------------------------------------- */
+
+    .teclado-numerico {
+
+        width: 240px;
+
+        gap: 8px;
+    }
+
+
+    .tecla {
+
+        height: 52px;
+
+        font-size: 20px;
+
+        border-radius: 14px;
+    }
+
+
+    /* ---------------------------------------------
+       COLLAGE
+    --------------------------------------------- */
+
+    .collage {
+
+        width: 100vw;
+
+        height: 65vh;
+    }
+
+
+    .foto {
+
+        width:
+            min(
+                245px,
+                62vw
+            );
+    }
+
+
+    .foto.izquierda {
+
+        transform:
+            translate(
+                calc(-50% - 105px),
+                -50%
+            )
+            rotate(-11deg)
+            scale(.72);
+    }
+
+
+    .foto.derecha {
+
+        transform:
+            translate(
+                calc(-50% + 105px),
+                -50%
+            )
+            rotate(11deg)
+            scale(.72);
+    }
+
+
+    .control-foto {
+
+        width: 44px;
+
+        height: 44px;
+
+        font-size: 29px;
+    }
+
+
+    .control-foto.anterior {
+
+        left: 4%;
+    }
+
+
+    .control-foto.siguiente {
+
+        right: 4%;
+    }
+
+
+    .recuerdos-titulo {
+
+        top: 6%;
+    }
+
+
+    .recuerdos-titulo p {
+
+        font-size: 17px;
+    }
+
+
+    .recuerdos-pie {
+
+        bottom: 2%;
+    }
+}
+
+
+/* =====================================================
+   FIRMA
+===================================================== */
+
+.firma-autor {
+
+    position: absolute;
+
+    bottom: 15px;
+
+    left: 50%;
+
+    transform:
+        translateX(-50%);
+
+    z-index: 100;
+
+    font-family:
+        system-ui,
+        -apple-system,
+        sans-serif;
+
+    font-size:
+        .85rem;
+
+    color:
+        rgba(
+            255,
+            255,
+            255,
+            .8
+        );
+
+    background:
+        rgba(
+            0,
+            0,
+            0,
+            .25
+        );
+
+    padding:
+        6px 16px;
+
+    border-radius: 20px;
+
+    backdrop-filter:
+        blur(4px);
+
+    border:
+        1px solid
+        rgba(
+            255,
+            255,
+            255,
+            .1
+        );
+
+    pointer-events: none;
+
+    text-align: center;
+}
+
+
+.firma-autor span {
+
+    font-weight: 600;
+
+    color:
+        #ffe600;
+}
+
+/* =====================================================
+   OCULTAR EL INPUT DEL CÓDIGO
+===================================================== */
+
+#codigoInput {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    padding: 0;
+    margin: -1px;
+    border: 0;
+    overflow: hidden;
+    clip: rect(0, 0, 0, 0);
+    white-space: nowrap;
+    opacity: 0;
+    pointer-events: none;
+}
+
+/* =====================================================
+   IMÁGENES DEL COLLAGE
+===================================================== */
+
+.foto-placeholder {
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+    position: relative;
+}
+
+
+/* IMAGEN */
+
+.foto-placeholder img {
+    width: 100%;
+    height: 100%;
+    display: block;
+
+    object-fit: cover;
+    object-position: center;
+
+    transition:
+        transform 0.6s ease,
+        filter 0.6s ease;
+}
+
+
+/* EFECTO SUAVE AL PASAR EL RATÓN */
+
+.foto.activa .foto-placeholder img {
+    transform: scale(1.02);
+}
+
+
+/* =====================================================
+   EVITAR QUE EL TEXTO FOTO 01 APAREZCA
+===================================================== */
+
+.foto-placeholder {
+    font-size: 0;
+}
+
+/* =====================================================
+   RECUERDOS - VIDEO DE FONDO + COLLAGE
+===================================================== */
+
+#recuerdos {
+    position: relative !important;
+
+    width: 100%;
+    height: 100vh;
+    min-height: 700px;
+
+    overflow: hidden !important;
+
+    isolation: isolate;
+}
+
+
+/* =====================================================
+   VIDEO DE FONDO
+===================================================== */
+
+#recuerdos .recuerdos-video {
+    position: absolute !important;
+
+    inset: 0;
+
+    width: 100% !important;
+    height: 100% !important;
+
+    object-fit: cover;
+
+    z-index: -3;
+
+    pointer-events: none;
+}
+
+
+/* =====================================================
+   CAPA SOBRE EL VIDEO
+===================================================== */
+
+#recuerdos .recuerdos-overlay {
+    position: absolute !important;
+
+    inset: 0;
+
+    width: 100%;
+    height: 100%;
+
+    background: rgba(80, 50, 0, 0.30);
+
+    z-index: -2;
+
+    pointer-events: none;
+}
+
+
+/* =====================================================
+   TÍTULO
+===================================================== */
+
+#recuerdos .recuerdos-titulo {
+    position: absolute !important;
+
+    top: 45px;
+    left: 50%;
+
+    transform: translateX(-50%);
+
+    width: 100%;
+
+    text-align: center;
+
+    z-index: 50 !important;
+
+    color: #ffffff;
+
+    pointer-events: none;
+}
+
+#recuerdos .recuerdos-titulo span {
+    display: block;
+
+    font-size: 42px;
+
+    line-height: 1;
+
+    margin-bottom: 8px;
+}
+
+#recuerdos .recuerdos-titulo p {
+    margin: 0;
+
+    font-size: 34px;
+    font-weight: 700;
+
+    text-shadow:
+        0 3px 8px rgba(0, 0, 0, 0.65);
+}
+
+
+/* =====================================================
+   COLLAGE
+===================================================== */
+
+#recuerdos .collage {
+    position: absolute !important;
+
+    top: 50%;
+    left: 50%;
+
+    transform: translate(-50%, -46%);
+
+    z-index: 20 !important;
+}
+
+
+/* =====================================================
+   FOTOS
+===================================================== */
+
+#recuerdos .foto {
+    z-index: 20;
+}
+
+
+/* =====================================================
+   BOTÓN ANTERIOR
+===================================================== */
+
+#recuerdos #anteriorFoto {
+    position: absolute !important;
+
+    left: 6%;
+
+    top: 50%;
+
+    transform: translateY(-50%);
+
+    z-index: 60 !important;
+}
+
+
+/* =====================================================
+   BOTÓN SIGUIENTE
+===================================================== */
+
+#recuerdos #siguienteFoto {
+    position: absolute !important;
+
+    right: 6%;
+
+    top: 50%;
+
+    transform: translateY(-50%);
+
+    z-index: 60 !important;
+}
+
+
+/* =====================================================
+   INDICADORES
+===================================================== */
+
+#recuerdos .indicadores-fotos {
+    position: absolute !important;
+
+    left: 50%;
+    bottom: 75px;
+
+    transform: translateX(-50%);
+
+    z-index: 60 !important;
+
+    display: flex;
+
+    justify-content: center;
+    align-items: center;
+
+    gap: 8px;
+}
+
+
+/* =====================================================
+   TEXTO HECHO CON CARIÑO
+===================================================== */
+
+#recuerdos .recuerdos-pie {
+    position: absolute !important;
+
+    left: 50%;
+    bottom: 38px;
+
+    transform: translateX(-50%);
+
+    z-index: 60 !important;
+
+    margin: 0;
+
+    color: #ffffff;
+
+    font-size: 15px;
+
+    text-align: center;
+
+    text-shadow:
+        0 2px 6px rgba(0, 0, 0, 0.8);
+}
+
+/* =====================================================
+   RESPONSIVE - IPHONE / MOVIL
+===================================================== */
+
+@media (max-width: 600px) {
+
+    /* ================================================
+       SECCIÓN RECUERDOS
+    ================================================ */
+
+    #recuerdos {
+        width: 100%;
+        height: 100svh;
+        min-height: 700px;
+        max-height: none;
+
+        overflow: hidden !important;
+    }
+
+
+    /* ================================================
+       VIDEO
+    ================================================ */
+
+    #recuerdos .recuerdos-video {
+        width: 100% !important;
+        height: 100% !important;
+
+        object-fit: cover;
+
+        object-position: center center;
+    }
+
+
+    /* ================================================
+       CAPA DEL VIDEO
+    ================================================ */
+
+    #recuerdos .recuerdos-overlay {
+        background: rgba(50, 35, 5, 0.30);
+    }
+
+
+    /* ================================================
+       TÍTULO
+    ================================================ */
+
+    #recuerdos .recuerdos-titulo {
+        top: 35px;
+
+        width: 90%;
+
+        padding: 0;
+    }
+
+
+    #recuerdos .recuerdos-titulo span {
+        font-size: 38px;
+
+        margin-bottom: 8px;
+    }
+
+
+    #recuerdos .recuerdos-titulo p {
+        font-size: 29px;
+
+        line-height: 1.05;
+
+        margin: 0 auto;
+
+        max-width: 330px;
+
+        color: #fff;
+
+        text-shadow:
+            0 3px 8px rgba(0, 0, 0, .75);
+    }
+
+
+    /* ================================================
+       COLLAGE
+    ================================================ */
+
+    #recuerdos .collage {
+        top: 52%;
+
+        left: 50%;
+
+        width: 330px;
+
+        height: 390px;
+
+        transform: translate(-50%, -50%);
+
+        z-index: 20 !important;
+    }
+
+
+    /* ================================================
+       FOTOS
+    ================================================ */
+
+    #recuerdos .foto {
+        max-width: 100%;
+        max-height: 100%;
+    }
+
+
+    /* ================================================
+       FOTO ACTIVA
+    ================================================ */
+
+    #recuerdos .foto.activa {
+        z-index: 30 !important;
+    }
+
+
+    /* ================================================
+       BOTÓN ANTERIOR
+    ================================================ */
+
+    #recuerdos #anteriorFoto {
+        left: 18px;
+
+        top: 55%;
+
+        width: 54px;
+        height: 54px;
+
+        transform: translateY(-50%);
+
+        z-index: 60 !important;
+    }
+
+
+    /* ================================================
+       BOTÓN SIGUIENTE
+    ================================================ */
+
+    #recuerdos #siguienteFoto {
+        right: 18px;
+
+        top: 55%;
+
+        width: 54px;
+        height: 54px;
+
+        transform: translateY(-50%);
+
+        z-index: 60 !important;
+    }
+
+
+    /* ================================================
+       INDICADORES
+    ================================================ */
+
+    #recuerdos .indicadores-fotos {
+        left: 50%;
+
+        bottom: 75px;
+
+        transform: translateX(-50%);
+
+        gap: 6px;
+
+        z-index: 70 !important;
+    }
+
+
+    #recuerdos .indicador {
+        width: 7px;
+        height: 7px;
+
+        min-width: 7px;
+        min-height: 7px;
+    }
+
+
+    #recuerdos .indicador.activo {
+        width: 20px;
+    }
+
+
+    /* ================================================
+       TEXTO INFERIOR
+    ================================================ */
+
+    #recuerdos .recuerdos-pie {
+        bottom: 42px;
+
+        width: 100%;
+
+        font-size: 14px;
+
+        text-align: center;
+
+        z-index: 70 !important;
+    }
+
+
+    /* ================================================
+       EVITAR SCROLL HORIZONTAL
+    ================================================ */
+
+    body {
+        overflow-x: hidden;
+    }
+}
