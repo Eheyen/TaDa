@@ -1,0 +1,458 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>21 de Septiembre 🖤</title>
+
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+    <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Montserrat:wght@300;400;500;600;700;800&display=swap"
+        rel="stylesheet">
+
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+    <!-- =========================
+         FONDO
+    ========================== -->
+
+    <div class="noise"></div>
+
+    <div class="red-light red-light-1"></div>
+    <div class="red-light red-light-2"></div>
+
+    <!-- =========================
+         CONTENEDOR PRINCIPAL
+    ========================== -->
+
+    <main class="website">
+
+        <!-- =========================
+             PANTALLA 1
+        ========================== -->
+
+        <section class="screen active" id="screen1">
+
+            <div class="screen-content">
+
+                <div class="top-bar">
+                    <span>21 DE SEPTIEMBRE</span>
+
+                    <span class="menu">☰</span>
+                </div>
+
+                <div class="hero-image">
+
+                    <img src="images/img3.jpg" alt="Duki">
+
+                    <div class="image-overlay"></div>
+
+                    <div class="graffiti graffiti-1">
+                        DUKI
+                    </div>
+
+                    <div class="graffiti graffiti-2">
+                        🖤
+                    </div>
+
+                </div>
+
+                <div class="hero-text">
+
+                    <p class="small-text">
+                        NO ES SOLO UNA PÁGINA,
+                        <br>
+                        ES UN PEQUEÑO DETALLE.
+                    </p>
+
+                    <h1>
+                        TENGO ALGO
+                        <span>PARA VOS</span>
+                    </h1>
+
+                    <button class="main-button" onclick="nextScreen()">
+                        ENTRAR
+                        <span>→</span>
+                    </button>
+
+                </div>
+
+                <div class="bottom-text">
+                    GOOD MUSIC × GOOD PEOPLE
+                </div>
+
+            </div>
+
+        </section>
+
+
+        <!-- =========================
+             PANTALLA 2
+        ========================== -->
+
+        <section class="screen" id="screen2">
+
+            <div class="screen-content">
+
+                <div class="top-bar">
+                    <span>21 DE SEPTIEMBRE</span>
+
+                    <span class="counter">
+                        02 / 05
+                    </span>
+                </div>
+
+                <div class="message-image">
+
+                    <img src="images/img2.jpg" alt="Momento especial">
+
+                    <div class="image-overlay"></div>
+
+                    <div class="vertical-text">
+                        DESDE EL FIN DEL MUNDO
+                    </div>
+
+                </div>
+
+                <div class="message-content">
+
+                    <h2>
+                        NO TODOS LOS DÍAS
+                        <br>
+                        CONOCÉS A ALGUIEN
+                        <br>
+                        QUE TE CAMBIA EL
+                        <span>MOOD.</span>
+                    </h2>
+
+                    <div class="heart">
+                        ♡
+                    </div>
+
+                    <p>
+                        Y VOS LO HICISTE.
+                    </p>
+
+                    <button class="main-button" onclick="nextScreen()">
+                        SEGUIR
+                        <span>→</span>
+                    </button>
+
+                </div>
+
+            </div>
+
+        </section>
+
+
+        <!-- =========================
+             PANTALLA 3
+        ========================== -->
+
+        <section class="screen" id="screen3">
+
+            <div class="screen-content">
+
+                <div class="top-bar">
+                    <span>21 DE SEPTIEMBRE</span>
+
+                    <span class="counter">
+                        03 / 05
+                    </span>
+                </div>
+
+                <div class="music-background">
+
+                    <img src="images/img3.jpg" alt="Duki">
+
+                    <div class="image-overlay"></div>
+
+                </div>
+
+                <div class="music-content">
+
+                    <p class="small-text">
+                        THIS IS YOUR
+                    </p>
+
+                    <h2 class="music-title">
+                        VIBE
+                        <span>🖤</span>
+                    </h2>
+
+                    <p class="music-description">
+                        UN ARTISTA.
+                        <br>
+                        MIL HISTORIAS.
+                        <br>
+                        UNA VIBRA.
+                    </p>
+
+                    <!-- REPRODUCTOR -->
+
+                    <div class="player">
+
+                        <div class="song-info">
+
+                            <img src="images/img4.jpg" alt="Duki">
+
+                            <div>
+                                <strong>DUKI</strong>
+
+                                <small>
+                                    TU CANCIÓN FAVORITA
+                                </small>
+                            </div>
+
+                            <span>♡</span>
+
+                        </div>
+
+                        <div class="progress-container">
+                            <div class="progress"></div>
+                        </div>
+
+                        <div class="time">
+                            <span>0:00</span>
+                            <span>3:20</span>
+                        </div>
+
+                        <div class="player-controls">
+
+                            <button>↶</button>
+
+                            <button
+                                class="play-button"
+                                id="playButton"
+                                onclick="toggleMusic()">
+                                ▶
+                            </button>
+
+                            <button>↷</button>
+
+                        </div>
+
+                    </div>
+
+                    <!-- BOTÓN SPOTIFY -->
+
+                    <a
+                        class="spotify-button"
+                        href="https://open.spotify.com/search/DUKI%20Antes%20de%20Perderte?utm_source=chatgpt.com"
+                        target="_blank">
+
+                        🎵 ESCUCHAR EN SPOTIFY
+
+                        <span>→</span>
+
+                    </a>
+
+                    <button class="main-button next-button"
+                        onclick="nextScreen()">
+
+                        SEGUIR
+                        <span>→</span>
+
+                    </button>
+
+                </div>
+
+            </div>
+
+        </section>
+
+
+        <!-- =========================
+             PANTALLA 4
+        ========================== -->
+
+        <section class="screen" id="screen4">
+
+            <div class="screen-content">
+
+                <div class="top-bar">
+                    <span>21 DE SEPTIEMBRE</span>
+
+                    <span class="counter">
+                        04 / 05
+                    </span>
+                </div>
+
+                <div class="personal-content">
+
+                    <div class="personal-title">
+
+                        <span>
+                            ENTRE TANTAS
+                        </span>
+
+                        <strong>
+                            PERSONAS...
+                        </strong>
+
+                    </div>
+
+                    <div class="photos">
+
+                        <div class="polaroid photo2">
+                            <video 
+                                src="images/vd.mp4"
+                                autoplay
+                                muted
+                                loop
+                                playsinline>
+                            </video>
+                        </div>
+
+                        <div class="polaroid photo1">
+                            <img src="images/1.jpeg" alt="Foto 1">
+                        </div>
+
+                        <div class="polaroid photo3">
+                            <img src="images/2.jpeg" alt="Foto 2">
+                        </div>
+
+                    </div>
+
+                    <div class="personal-message">
+
+                        <p>
+                            TERMINÉ
+                            <br>
+                            ENCONTRANDO
+                            <br>
+                            A VOS.
+                        </p>
+
+                        <span>
+                            Y NO ME QUEJO.
+                        </span>
+
+                    </div>
+
+                    <div class="small-graffiti">
+                        GOOD PEOPLE
+                        <br>
+                        GOOD MOMENTS
+                        🖤
+                    </div>
+
+                    <button class="main-button"
+                        onclick="nextScreen()">
+
+                        SEGUIR
+                        <span>→</span>
+
+                    </button>
+
+                </div>
+
+            </div>
+
+        </section>
+
+
+        <!-- =========================
+             PANTALLA 5
+        ========================== -->
+
+        <section class="screen" id="screen5">
+
+            <div class="screen-content final-screen">
+
+                <div class="top-bar">
+                    <span>21 DE SEPTIEMBRE</span>
+
+                    <span class="counter">
+                        05 / 05
+                    </span>
+                </div>
+
+                <div class="final-background">
+
+                    <img src="images/img2.jpg">
+
+                    <div class="image-overlay"></div>
+
+                </div>
+
+                <div class="final-content">
+
+                    <div class="final-heart">
+                        ♡
+                    </div>
+
+                    <p>
+                        FELIZ
+                    </p>
+
+                    <h2>
+                        21 DE
+                        <span>SEPTIEMBRE</span>
+                    </h2>
+
+                    <div class="line"></div>
+
+                    <p class="final-message">
+
+                        QUE NUNCA TE FALTE
+                        <br>
+                        MÚSICA, LOCURA
+                        <br>
+                        Y MOMENTOS
+                        <br>
+                        QUE VALGAN.
+
+                    </p>
+
+                    <div class="signature">
+                        — G
+                    </div>
+
+                    <button
+                        class="main-button"
+                        onclick="restartPage()">
+
+                        ↻
+
+                        VOLVER A VER
+
+                    </button>
+
+                </div>
+
+                <div class="final-graffiti">
+                    GOOD MUSIC
+                    <br>
+                    GOOD PEOPLE
+                </div>
+
+            </div>
+
+        </section>
+
+
+    </main>
+
+
+    <!-- =========================
+         AUDIO
+    ========================== -->
+
+    <audio id="music" loop>
+        <source src="DUKI - Antes de Perderte (Video Oficial).mp3" type="audio/mpeg">
+    </audio>
+
+
+    <script src="script.js"></script>
+
+</body>
+
+</html>
